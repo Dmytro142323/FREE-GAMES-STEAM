@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse free games available on Steam, organized by category and updated every six hours.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Free Games Explorer</title>
+  <link rel="preconnect" href="https://shared.akamai.steamstatic.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Skip to games</a>
+
+  <header class="global-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Free Games Explorer">
+        <span class="brand-orbit"><i></i></span>
+        <span>FREE GAMES</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a class="active" href="#catalog">STORE</a>
+        <a href="https://steamcommunity.com/" target="_blank" rel="noopener">COMMUNITY</a>
+        <a href="#about">ABOUT</a>
+      </nav>
+      <div class="header-actions">
+        <a class="install" href="https://store.steampowered.com/about/" target="_blank" rel="noopener">Install Steam</a>
+        <a href="https://store.steampowered.com/login/" target="_blank" rel="noopener">login</a>
+      </div>
+      <button class="menu-button" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+    </div>
+  </header>
+  <nav id="mobile-menu" class="mobile-menu">
+    <a href="#catalog">Store</a><a href="https://steamcommunity.com/">Community</a><a href="#about">About</a>
+  </nav>
+
+  <main id="top">
+    <div class="store-shell">
+      <nav class="store-nav" aria-label="Store sections">
+        <a href="#featured">Your Store</a>
+        <a href="#catalog">New & Noteworthy</a>
+        <a href="#categories">Categories</a>
+        <a href="#online">Online Games</a>
+        <a href="https://store.steampowered.com/points/shop/" target="_blank" rel="noopener">Points Shop</a>
+        <span class="nav-search"><input id="nav-search" type="search" placeholder="search games"><button aria-label="Search">⌕</button></span>
+      </nav>
+
+      <section class="featured" id="featured" aria-labelledby="featured-title">
+        <div class="section-heading">
+          <h1 id="featured-title">FEATURED & RECOMMENDED</h1>
+          <span>FREE TO PLAY ON STEAM</span>
+        </div>
+        <div id="featured-card" class="featured-card">
+          <div class="skeleton large"></div>
+        </div>
+        <div id="featured-dots" class="featured-dots"></div>
+      </section>
+
+      <section class="quick-categories" id="categories" aria-labelledby="browse-title">
+        <div class="section-heading"><h2 id="browse-title">BROWSE BY CATEGORY</h2></div>
+        <div id="quick-category-list" class="quick-category-list"></div>
+      </section>
+
+      <section class="catalog-layout" id="catalog">
+        <aside class="sidebar">
+          <h2>NARROW BY CATEGORY</h2>
+          <button class="side-filter active" data-category="All"><span>All Free Games</span><b id="all-count">—</b></button>
+          <button class="side-filter online-filter" data-category="Online"><span>Online Games</span><b id="online-count">—</b></button>
+          <div id="sidebar-categories"></div>
+          <div class="steam-source">
+            <span>DATA SOURCE</span>
+            <a href="https://store.steampowered.com/search/?maxprice=free&category1=998&ndl=1" target="_blank" rel="noopener">Steam Store ↗</a>
+            <small>Updated every 6 hours</small>
+          </div>
+        </aside>
+
+        <div class="catalog-main">
+          <div class="catalog-toolbar">
+            <div>
+              <h2 id="catalog-title">ALL FREE GAMES</h2>
+              <p><span id="result-count">0</span> results from Steam</p>
+            </div>
+            <label>Sort by
+              <select id="sort-select">
+                <option value="popular">Relevance</option>
+                <option value="reviews">User reviews</option>
+                <option value="newest">Release date</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+          </div>
+          <div class="search-box">
+            <input id="game-search" type="search" placeholder="Search the free games catalog">
+            <button id="clear-search">Clear</button>
+          </div>
+          <div id="active-filter" class="active-filter"></div>
+          <div id="game-list" class="game-list" aria-live="polite">
+            <div class="skeleton row"></div><div class="skeleton row"></div><div class="skeleton row"></div>
+          </div>
+          <nav class="pagination" aria-label="Catalog pages">
+            <button id="prev-page">‹ Previous</button>
+            <span id="page-status">Page 1</span>
+            <button id="next-page">Next ›</button>
+          </nav>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="about">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+      <div class="brand footer-brand"><span class="brand-orbit"><i></i></span><span>FREE GAMES</span></div>
+      <p>This independent catalog is not affiliated with Valve or Steam. Game names, images and store data belong to their respective owners. Every game link opens the official Steam Store.</p>
+      <p>Last catalog update: <time id="updated-at">—</time></p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
